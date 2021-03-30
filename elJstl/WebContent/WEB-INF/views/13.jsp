@@ -40,7 +40,24 @@
 		<tr>
 			<td>no</td><td>name</td><td>email</td><td>status.index</td><td>status.count</td>
 		</tr>
-	
+		<!-- forEach -->
+		<c:forEach items="${ userList }" var="vo" varStatus="status">
+		<!-- 현재 행이 짝수 행이면 회색으로 표시 -->
+		<c:choose>
+		<c:when test="${ status.count % 2 == 0 }">
+		<tr style="background:lightgray">
+		</c:when>
+		<c:otherwise>
+		<tr>
+		</c:otherwise>
+		</c:choose>
+			<td>${vo.no}</td>
+			<td>${vo.name}</td>
+			<td>${vo.email}</td>
+			<td>${status.index}</td>
+			<td>${status.count}</td>
+		</tr>
+		</c:forEach>
 		
 
 
